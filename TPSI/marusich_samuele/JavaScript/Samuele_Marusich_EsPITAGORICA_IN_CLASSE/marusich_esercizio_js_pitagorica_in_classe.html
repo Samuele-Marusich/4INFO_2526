@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="marusich_esercizio_js_pitagorica_in_classe.css">
+    <script src="marusich_esercizio_js_pitagorica_in_classe.js"></script>
+    <title>Tavola Pitagorica</title>
+</head>
+<body>
+    <h1 class="main-title">Tavola Pitagorica</h1>
+    <div class="input-top">
+        <label for="colonne">Numero di colonne</label>
+        <input type="number" id="colonne" min="3" max="12" />
+        <button onclick="generaPitagorica()">Genera</button>
+    </div>
+    <table id="pitagorica">
+    </table>
+    <div class="input-bottom">
+        <label for="">Numero</label>
+        <input type="number" id="numero" min="3" max="12" />
+        <button onclick="calcolaMultipliDivisori(true)">Multipli</button>       <!-- Passo il parametro true se è stato premuto il pulsante dei multipli -->
+        <button onclick="calcolaMultipliDivisori(false)">Divisori</button>      <!-- Passo il parametro false se è stato premuto il pulsante dei divisori -->
+    </div>
+</body>
+</html>
