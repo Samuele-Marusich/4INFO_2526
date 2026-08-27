@@ -5,7 +5,7 @@ function salva(){
     let prioritaValue = prioritaObj.value
     let tabellaObj = document.getElementById("tabella")
     if(testoValue != ""){
-        let id = new Date().getTime() 
+        let id = "id_" + new Date().getTime() 
         const tr = document.createElement("tr")
         const tdTesto = document.createElement("td")
         const tdPriorita = document.createElement("td")
@@ -51,12 +51,12 @@ function salva(){
     }
 }
 function elimina(elemento){ 
-    const identificatorePulsante = elemento.srcElement.classList[0]
+    const identificatorePulsante = elemento.target.classList[0]
     let trRemove = document.getElementsByClassName(identificatorePulsante)
     trRemove[0].remove()
 }
 function fatto(elemento){
-    const idPulsante = elemento.srcElement.classList[0]
+    const idPulsante = elemento.target.classList[0]
     let trToTick = document.getElementsByClassName(idPulsante)
     trToTick[0].children[0].classList.toggle("eliminato")
 }

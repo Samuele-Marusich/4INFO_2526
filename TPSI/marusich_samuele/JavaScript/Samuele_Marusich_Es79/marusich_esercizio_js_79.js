@@ -1,39 +1,44 @@
-import { Automobile } from "./es_79.js";
-describe("ESERCIZIO 79", () => {
-  test("Persone", () => {
-    const car = new Automobile();
-    expect(() => (car.persone = 10)).toThrow();
-    expect(() => (car.persone = 5)).not.toThrow();
-    expect(car.persone).toBe(5);
-    car.accesa = true;
-    car.velocita = 10;
-    expect(() => (car.persone = 1)).toThrow();
-    expect(car.persone).toBe(5);
-  });
-  test("Velocità", () => {
-    const car = new Automobile();
-    expect(() => (car.velocita = 10)).toThrow();
-    car.accesa = true;
-    expect(() => (car.velocita = 10)).not.toThrow();
-    expect(car.velocita).toBe(10);
-    expect(() => (car.velocita = 500)).toThrow();
-    expect(() => (car.velocita = 170)).toThrow();
-    expect(car.velocita).toBe(10);
-  });
-  test("Marcia", () => {
-    const car = new Automobile();
-    expect(car.aggiungi_marcia).toThrow();
-    expect(car.togli_marcia).toThrow();
-    car.accesa = true;
-    for (let idx = 0; idx < 5; idx++) {
-      car.aggiungi_marcia();
+class Automobile {
+    constructor() {
+        this.accesa = false;
+        this._velocita = 0;
+        this._persone = 0;
+        this._marcia = 1;
     }
-    expect(car.marcia).toBe(6);
-    expect(car.aggiungi_marcia).toThrow();
-    for (let idx = 0; idx < 5; idx++) {
-      car.togli_marcia();
+    
+    get persone() {
+        return this._persone;
     }
-    expect(car.togli_marcia).toThrow();
-    expect(car.marcia).toBe(1);
-  });
-});
+    
+    set persone(val) {
+        if (val > 5) throw new Error("Troppe persone");
+        if (this.accesa && this._velocita > 0) throw new Error("Auto in movimento");
+        this._persone = val;
+    }
+    
+    get velocita() {
+        return this._velocita;
+    }
+    
+    set velocita(val) {
+        if (!this.accesa) throw new Error("Auto spenta");
+        if (val > 130) throw new Error("Velocita eccessiva");
+        this._velocita = val;
+    }
+    
+    get marcia() {
+        return this._marcia;
+    }
+    
+    aggiungi_marcia() {
+        if (!this.accesa) throw new Error("Auto spenta");
+        if (this._marcia >= 6) throw new Error("Marcia massima raggiunta");
+        this._marcia++;
+    }
+    
+    togli_marcia() {
+        if (!this.accesa) throw new Error("Auto spenta");
+        if (this._marcia <= 1) throw new Error("Marcia minima raggiunta");
+        this._marcia--;
+    }
+}

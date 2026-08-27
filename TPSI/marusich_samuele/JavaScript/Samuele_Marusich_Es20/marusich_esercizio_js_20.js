@@ -2,7 +2,7 @@ let Automobile = function(persone,vel,rapporto,stato){
     (this.persone = Number(persone) >= 0 ? (Number(persone) <= 5 ? Number(persone) : 5) : 0),
     (this.velocita = Number(vel) >= 0 ? (Number(vel) <= 180 ? Number(vel) : 180) : 0),
     (this.rapporto = Number(rapporto) >= 1 ? (Number(rapporto) <= 6 ? Number(rapporto) : 6) : 1),
-    (this.stato = stato == "on" ? true : false),
+    (this.stato = stato === "on"),
     (this.toggleStato = function(){
         this.stato = !this.stato;
         this.velocita = 0;

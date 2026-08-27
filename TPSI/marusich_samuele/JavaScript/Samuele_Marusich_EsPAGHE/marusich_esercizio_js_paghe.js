@@ -122,7 +122,7 @@ function mostraMed(){
             somma = somma + Number(tabellaObj.children[indice].children[4].innerText)
         }
         let media = somma / (tabellaObj.children.length - 1)
-        tdCentrTotale.innerHTML = "TOTALE"
+        tdCentrTotale.innerHTML = "MEDIA"
         tdCentrPrezzo.innerHTML = `${media} €`
         tabellaMedia.append(rigaLineaSup)
         tabellaMedia.append(rigaPrezzo)

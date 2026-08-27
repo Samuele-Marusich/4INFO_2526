@@ -1,15 +1,27 @@
-import { Studente, Docente, confrontaOBJ  } from "./es_72.js";
-describe("ESERCIZIO 72", () => {
-    test('Studente-Docente uguali', () => {
-        expect(confrontaOBJ(new Studente("Mario", 4), new Docente("Mario", 4))).toBe(false);
-    });
-    test('Studente-Docente diversi', () => {
-        expect(confrontaOBJ(new Studente("Giovanni", 2), new Docente("Pino", 5))).toBe(false);
-    });
-    test('Studente-Studente diversi', () => {
-        expect(confrontaOBJ(new Studente("Giovanni", 2), new Docente("Pino", 5))).toBe(false);
-    });
-    test('Studente-Studente uguali', () => {
-        expect(confrontaOBJ(new Studente("Giovanni", 2), new Studente("Giovanni", 2))).toBe(true);
-    });
-});
+class Studente {
+  constructor(nome, classe) {
+    this.nome = nome;
+    this.classe = classe;
+  }
+}
+
+class Docente {
+  constructor(nome, classe) {
+    this.nome = nome;
+    this.classe = classe;
+  }
+}
+
+const confrontaOBJ = (obj1, obj2) => {
+  if((obj1 instanceof Studente && obj2 instanceof Studente) || (obj1 instanceof Docente && obj2 instanceof Docente)){
+    if (JSON.stringify(obj1) == JSON.stringify(obj2)){
+      return true
+    }
+    else{
+      return false
+    }
+  }
+  else{
+    return false
+  }
+};

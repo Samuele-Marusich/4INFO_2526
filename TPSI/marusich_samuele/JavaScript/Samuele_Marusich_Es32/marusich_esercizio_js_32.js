@@ -1,18 +1,16 @@
-import { special_concat } from "./es_32.js";
-describe("ESERCIZIO 32", () => {
-    test('TEST 01', () => {
-        expect(special_concat('Ciro', 'Esposito')).toBe('EsroCiposito');
-    });
-    test('TEST 02', () => {
-        expect(special_concat('Mario', 'Rossi Filippo')).toBe('parole non adatte');
-    }); 
-    test('TEST 03', () => {
-        expect(special_concat('',  'verde')).toBe('parole non adatte');
-    });
-    test('TEST 04', () => {
-        expect(special_concat('Mario', '')).toBe('parole non adatte');
-    });
-    test('TEST 05', () => {
-        expect(special_concat('', '')).toBe('parole non adatte');
-    });
-});
+const special_concat = (str1, str2) => {
+   if (str1.length === 0 || str2.length === 0) {
+      return "parole non adatte"
+   }
+
+   if (str1.includes(" ") || str2.includes(" ")) {
+      return "parole non adatte"
+   }
+   
+   let strOut = ""
+   strOut += str2.charAt(0) + str1.slice(1) + str1.charAt(0) + str2.slice(1)
+   return strOut
+
+   
+   
+};

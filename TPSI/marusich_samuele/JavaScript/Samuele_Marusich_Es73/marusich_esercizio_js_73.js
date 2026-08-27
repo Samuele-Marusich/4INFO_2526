@@ -29,7 +29,7 @@ function init(){
     divForm.append(inputColoreCapelli)
     let pulsanteSubmit = document.createElement("button")
     pulsanteSubmit.innerText = "Invia form"
-    pulsanteSubmit.onclick = "processaModulo()"
+    pulsanteSubmit.onclick = processaModulo
     divForm.append(pulsanteSubmit)
     body.append(titolo)
     body.append(divForm)

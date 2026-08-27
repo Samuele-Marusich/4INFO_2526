@@ -3,19 +3,19 @@ function forIn(oggetto,funz,indent = 0){
     for(let indice = 0;indice<chiavi.length;indice++){
         const ele = oggetto[chiavi[indice]];
         if(typeof ele == "object"){
-            prova(chiavi[indice],"",indent);
+            funz(chiavi[indice],"",indent);
             forIn(ele,funz,indent+1);
         }else{
             funz(chiavi[indice],ele,indent);
         }
     }
 }
-function prova(chiave,elemento = "",indent){
+function funz(chiave,elemento = "",indent){
     indent = indent > 0 ? "\t".repeat(indent) : "";
     console.log(`${indent} ${chiave} : ${elemento}`);
 }
 const persona = {
-    nome : "Marco",
+    nome : "Marusich",
     cognome : "Marusich",
     eta : 17,
     stato : "Italia",

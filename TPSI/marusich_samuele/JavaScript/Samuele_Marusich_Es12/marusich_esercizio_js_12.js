@@ -38,7 +38,7 @@ let Poligono = function(nome,lati,area){
     }),
     (this.verifica = function(){
         let nomi = ["Triangolo","Quadrato","Pentagono","Esagono","Ettagono","Ottagono","Ennagono","Decagono"];
-        if( this.lati > 0 && this.lati < 11 && this.nome == nomi[this.lati-3]){
+        if( this.lati >= 3 && this.lati < 11 && this.nome == nomi[this.lati-3]){
             console.log("Poligono confermato");
         }else{
             console.log("Poligono non valido");

@@ -2,7 +2,7 @@ let Sommatore = function(n){
     (this.n = n),
     (this.somma = function(){
         let n = this.n;
-        n = typeof n == "Number" ? n : Number(n);
+        n = typeof n == "number" ? n : Number(n);
         let ris = n * (n+1) / 2;
     console.log(`Risultato per ${n}: ${ris}`);
     })

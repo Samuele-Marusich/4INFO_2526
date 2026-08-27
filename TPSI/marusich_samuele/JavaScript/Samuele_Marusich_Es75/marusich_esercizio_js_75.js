@@ -1,12 +1,32 @@
-import { Automobile, Animale, Poligono } from "./es_75.js";
-describe("ESERCIZIO 75", () => {
-    test('Test car enum', () => {
-        expect((new Automobile("Rosso", "Honda", "Civic Type R")).enumera()).toStrictEqual(["colore", "marca", "modello"]);
-    });
-    test('Test animal enum', () => {
-        expect((new Animale("Scimmia", "Miss Baker", 27)).enumera()).toStrictEqual(["specie", "nome", "eta"]);
-    });
-    test('Test poligono enum', () => {
-        expect((new Poligono(10, 7, true)).enumera()).toStrictEqual(["lato", "n_lati", "reg"]);
-    });
-});
+class Enumera {
+    enumera() {
+        return Object.keys(this);
+    }
+}
+
+class Animale extends Enumera {
+    constructor(specie, nome, eta) {
+        super();
+        this.specie = specie;
+        this.nome = nome;
+        this.eta = eta;
+    }
+}
+
+class Automobile extends Enumera {
+    constructor(colore, marca, modello) {
+        super();
+        this.colore = colore;
+        this.marca = marca;
+        this.modello = modello;
+    }
+}
+
+class Poligono extends Enumera {
+    constructor(lato, n_lati, reg) {
+        super();
+        this.lato = lato;
+        this.n_lati = n_lati;
+        this.reg = reg;
+    }
+}

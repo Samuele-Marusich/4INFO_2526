@@ -12,7 +12,7 @@ function salva(){
     let tabellaObj = document.getElementById("tabella")
     if(cognomeValue != "" && nomeValue != "" && indirizzoValue != "" && telefonoValue != ""){
         if(isInsert == true){
-            let id = new Date().getTime() 
+            let id = "id_" + new Date().getTime() 
             const tr = document.createElement("tr")
             const tdCognome = document.createElement("td")
             const tdNome = document.createElement("td")
@@ -59,9 +59,8 @@ function salva(){
     }
 }
 function rimuovi(elemento){ 
-    const idPulsante = elemento.srcElement.id
-    let trRemove = document.getElementById(idPulsante)
-    trRemove.remove()
+    let trRemove = elemento.target.closest("tr");
+    if(trRemove) trRemove.remove();
 }
 function cerca(){
     let cognomeForm = document.getElementById("cognome").value
